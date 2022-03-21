@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 import "./Login.css";
 
 const Login = (props) => {
@@ -18,8 +19,6 @@ const Login = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     setLoading(true);
-    setUsername("");
-    setPassword("");
     console.log(username, password);
     fetch("http://127.0.0.1:3001/api/v1/users/login", {
       method: "POST",
@@ -35,14 +34,19 @@ const Login = (props) => {
         if (result.status === "Success") {
           console.log(result);
           localStorage.setItem("token", result.data.token);
+          setLoading(false);
           navigate("/chat");
         } else {
           setError(true);
+          setLoading(false);
+          setUsername("");
+          setPassword("");
         }
       });
   };
   return (
     <div className="login-page">
+      {loading && <Loader />}
       <div className="login-card">
         <h1 className="login-heading">Mark 2</h1>
         <h2>Sign In!</h2>
