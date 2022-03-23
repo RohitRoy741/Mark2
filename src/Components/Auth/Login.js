@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 import "./Login.css";
@@ -33,6 +33,7 @@ const Login = (props) => {
         setLoading(false);
         if (result.status === "Success") {
           console.log(result);
+          localStorage.setItem("username", username);
           localStorage.setItem("token", result.data.token);
           setLoading(false);
           navigate("/chat");
@@ -44,6 +45,11 @@ const Login = (props) => {
         }
       });
   };
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/chat");
+    }
+  });
   return (
     <div className="login-page">
       {loading && <Loader />}

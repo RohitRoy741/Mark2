@@ -1,0 +1,13 @@
+.message {
+  padding: 15px;
+  border-radius: 25px;
+  background-color: rgb(7, 177, 7);
+  color: white;
+  width: fit-content;
+}
+.server {
+  align-self: center;
+  background-color: rgba(192, 192, 6, 0.603);
+  color: black;
+  border-radius: 0;
+}

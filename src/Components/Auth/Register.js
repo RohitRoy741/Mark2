@@ -36,6 +36,7 @@ const Register = (props) => {
       .then((response) => response.json())
       .then((result) => {
         if (result.status === "Success") {
+          localStorage.setItem("username", username);
           localStorage.setItem("token", result.data.token);
           setLoading(false);
           navigate("/chat");

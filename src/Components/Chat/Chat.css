@@ -1,0 +1,30 @@
+.chat {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  border-top: 0.7px solid white;
+  color: white;
+  cursor: pointer;
+}
+.chat:hover {
+  background-color: rgb(57, 29, 110);
+}
+.chat-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+}
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+.chat-username {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+.chat-message {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+}

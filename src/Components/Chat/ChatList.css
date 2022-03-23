@@ -1,0 +1,12 @@
+.chat-list {
+  flex-basis: 33%;
+  height: 90vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgb(82, 41, 156);
+}
+@media screen and (max-width: 600px) {
+  .chat-list {
+    flex-basis: 100vw;
+  }
+}

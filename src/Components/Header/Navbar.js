@@ -5,8 +5,8 @@ import "./Navbar.css";
 const Navbar = (props) => {
   const [username, setUsername] = useState("");
   const [showCard, setShowCard] = useState(false);
-  const [passedUsername, setPassedUsername] = useState("");
   const [loading, setLoading] = useState(false);
+  const [card, setCard] = useState(null);
   const usernameChangeHandler = (event) => {
     setUsername(event.target.value);
   };
@@ -18,23 +18,29 @@ const Navbar = (props) => {
       .then((result) => {
         setLoading(false);
         if (result.status === "Success") {
-          setPassedUsername(username);
+          setCard(
+            <UserCard
+              username={result.username}
+              onClose={closeCardHandler}
+              id={result.userId}
+            />
+          );
           setShowCard(true);
         } else {
+          setCard(<UserCard username="Not Found" onClose={closeCardHandler} />);
           setUsername("User Not Found");
           setShowCard(true);
         }
       });
   };
   const closeCardHandler = (event) => {
+    setUsername("");
     setShowCard(false);
   };
   return (
     <div>
       {loading && <Loader />}
-      {showCard && (
-        <UserCard username={passedUsername} onClose={closeCardHandler} />
-      )}
+      {showCard && card}
       <nav className="top-nav">
         <h1 className="logo-site">Mark 2</h1>
         <form className="search-form" onSubmit={submitHandler}>
@@ -51,15 +57,6 @@ const Navbar = (props) => {
           alt="avatar"
           className="avatar"
         />
-      </nav>
-      <nav className="bottom-nav">
-        <form>
-          <input
-            type="text"
-            placeholder="Enter username"
-            id="search-username-bottom"
-          />
-        </form>
       </nav>
     </div>
   );

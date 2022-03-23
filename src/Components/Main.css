@@ -1,0 +1,8 @@
+.main {
+  display: flex;
+}
+@media screen and (max-width: 600px) {
+  .conversation {
+    display: none;
+  }
+}
