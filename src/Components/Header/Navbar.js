@@ -13,7 +13,13 @@ const Navbar = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch(`http://127.0.0.1:3001/api/v1/users/${username}`)
+    fetch(`http://127.0.0.1:3001/api/v1/users/${username}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
       .then((result) => {
         setLoading(false);

@@ -34,6 +34,7 @@ const Login = (props) => {
         if (result.status === "Success") {
           console.log(result);
           localStorage.setItem("username", username);
+          localStorage.setItem("id", result.data.userId);
           localStorage.setItem("token", result.data.token);
           setLoading(false);
           navigate("/chat");

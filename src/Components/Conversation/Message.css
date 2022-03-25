@@ -4,10 +4,23 @@
   background-color: rgb(7, 177, 7);
   color: white;
   width: fit-content;
+  margin: 5px;
 }
 .server {
   align-self: center;
   background-color: rgba(192, 192, 6, 0.603);
   color: black;
   border-radius: 0;
+}
+.self {
+  align-self: flex-end;
+  background-color: rgba(134, 11, 206, 0.603);
+  color: white;
+  border-radius: 15px;
+}
+.other {
+  align-self: flex-start;
+  background-color: rgba(5, 29, 170, 0.603);
+  color: white;
+  border-radius: 15px;
 }

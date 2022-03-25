@@ -1,0 +1,21 @@
+.chat-form {
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.message-input {
+  height: 6vh;
+  width: 90%;
+  font-size: 16px;
+  outline: none;
+}
+.message-submit-button {
+  height: 6vh;
+  width: 10%;
+  font-size: 16px;
+  background-color: rgb(3, 148, 3);
+  color: white;
+  cursor: pointer;
+  border: none;
+}

@@ -15,12 +15,19 @@ const Chat = (props) => {
     }
   });
   let src = `https://picsum.photos/200?random=${props.username}`;
+  const handleClick = () => {
+    props.onClick(props.id);
+  };
   return (
-    <div className="chat">
+    <div className="chat" onClick={handleClick}>
       <img src={src} alt="chat-avatar" className="chat-avatar" />
       <div className="user-details">
         <h3 className="chat-username">{props.username}</h3>
-        <p className="chat-message">{props.text.slice(0, 20)}</p>
+        <p className="chat-message">
+          {props.text.length > 30
+            ? props.text.slice(0, 30) + "..."
+            : props.text}
+        </p>
       </div>
       {/* <button type="submit" onClick={logoutHandler}>
         Logout

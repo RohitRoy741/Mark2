@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Loader from "./../Auth/Loader";
 import "./UserCard.css";
+import { io } from "socket.io-client";
 const UserCard = (props) => {
+  const socket = io("http://127.0.0.1:3001");
   const [loading, setLoading] = useState(false);
   const addUserHandler = () => {
     setLoading(true);
@@ -19,6 +21,13 @@ const UserCard = (props) => {
       .then((result) => {
         console.log(result);
         setLoading(false);
+        socket.emit(
+          "add-contact",
+          result.data.chat._id,
+          props.username,
+          localStorage.getItem("id"),
+          localStorage.getItem("username")
+        );
         window.location.reload(true);
       });
   };
