@@ -2,9 +2,18 @@
   display: flex;
 }
 @media screen and (max-width: 600px) {
-  .conversation {
+  .mobile-hide {
     display: none;
   }
+  .desktop-hide {
+    display: inline-block !important;
+  }
+  .mobile-show {
+    flex-basis: 100vw;
+  }
+}
+.desktop-hide {
+  display: none;
 }
 .logout-button {
   position: absolute;

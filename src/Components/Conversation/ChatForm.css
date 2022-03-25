@@ -6,13 +6,13 @@
 }
 .message-input {
   height: 6vh;
-  width: 90%;
+  width: 85%;
   font-size: 16px;
   outline: none;
 }
 .message-submit-button {
   height: 6vh;
-  width: 10%;
+  width: 15%;
   font-size: 16px;
   background-color: rgb(3, 148, 3);
   color: white;

@@ -10,6 +10,7 @@ const Navbar = (props) => {
   const usernameChangeHandler = (event) => {
     setUsername(event.target.value);
   };
+  const [searchBarActive, setSearchBarActive] = useState(false);
   const submitHandler = (event) => {
     event.preventDefault();
     setLoading(true);
@@ -43,13 +44,31 @@ const Navbar = (props) => {
     setUsername("");
     setShowCard(false);
   };
+  let searchBarStyle = "search-form ";
+  let logoStyle = "logo-site ";
+  let rightNavStyle = "right-nav ";
+  if (searchBarActive) {
+    searchBarStyle += "mobile-show";
+    logoStyle += "mobile-hide";
+    rightNavStyle += "mobile-hide";
+  } else {
+    searchBarStyle += "mobile-hide";
+    logoStyle = "logo-site";
+    rightNavStyle = "right-nav";
+  }
+  const showSearchBar = () => {
+    setSearchBarActive(true);
+  };
+  const hideSearchBar = () => {
+    setSearchBarActive(false);
+  };
   return (
     <div>
       {loading && <Loader />}
       {showCard && card}
       <nav className="top-nav">
-        <h1 className="logo-site">Mark 2</h1>
-        <form className="search-form" onSubmit={submitHandler}>
+        <h1 className={logoStyle}>Mark 2</h1>
+        <form className={searchBarStyle} onSubmit={submitHandler}>
           <input
             type="text"
             id="search-username"
@@ -57,12 +76,20 @@ const Navbar = (props) => {
             value={username}
             onChange={usernameChangeHandler}
           />
+          <span class="material-icons desktop-hide" onClick={hideSearchBar}>
+            close
+          </span>
         </form>
-        <img
-          src="https://picsum.photos/200?random=1"
-          alt="avatar"
-          className="avatar"
-        />
+        <div className={rightNavStyle}>
+          <span className="material-icons desktop-hide" onClick={showSearchBar}>
+            search
+          </span>
+          <img
+            src="https://picsum.photos/200?random=1"
+            alt="avatar"
+            className="avatar"
+          />
+        </div>
       </nav>
     </div>
   );

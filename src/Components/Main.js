@@ -3,12 +3,12 @@ import ChatList from "./Chat/ChatList";
 import Conversation from "./Conversation/Conversation";
 import { useEffect, useState } from "react";
 import "./Main.css";
-import { useNavigate } from "react-router-dom";
 
 const Main = (props) => {
   const [chats, setChats] = useState([]);
   const [conversation, setConversation] = useState(null);
   const [activeUser, setActiveUser] = useState("");
+  const [inactiveComponent, setInactiveComponent] = useState("conversation");
   console.log("Main Rendered: ", chats, conversation, activeUser, props.socket);
   useEffect(() => {
     console.log("Running Effect", props.socket);
@@ -115,11 +115,17 @@ const Main = (props) => {
         : chats.data.usernames[index][0];
     setConversation(newConversation);
     setActiveUser(newUsername);
+    setInactiveComponent("chat-list");
   };
-  const navigate = useNavigate();
-  const logoutHandler = () => {
-    localStorage.removeItem("token");
-    navigate("/");
+
+  let conversationStyle = "mobile-hide";
+  let chatListStyle = "mobile-show";
+  if (inactiveComponent !== "conversation") {
+    chatListStyle = "mobile-hide";
+    conversationStyle = "mobile-show";
+  }
+  const handleToggleMobile = () => {
+    setInactiveComponent("conversation");
   };
   return (
     <div>
@@ -127,15 +133,18 @@ const Main = (props) => {
         <Navbar />
       </header>
       <main className="main">
-        <ChatList chats={chats} onChangeConversation={onChangeConversation} />
+        <ChatList
+          chats={chats}
+          onChangeConversation={onChangeConversation}
+          classes={chatListStyle}
+        />
         <Conversation
           conversation={conversation}
           username={activeUser}
           onAddMessage={addMessageHandler}
+          onBack={handleToggleMobile}
+          classes={conversationStyle}
         />
-        <button className="logout-button" onClick={logoutHandler}>
-          Logout
-        </button>
       </main>
     </div>
   );

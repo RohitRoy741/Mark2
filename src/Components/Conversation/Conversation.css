@@ -1,5 +1,5 @@
 .conversation {
-  width: 67%;
+  flex-basis: 67%;
   height: 90vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 72vh;
+  height: 76vh;
   overflow-x: hidden;
   overflow-x: auto;
 }
@@ -21,7 +21,7 @@
   background-color: #8c4de4;
   color: white;
   padding: 7px;
-  height: 12vh;
+  height: 8vh;
 }
 .conversation-header-username {
   font-size: 20px;

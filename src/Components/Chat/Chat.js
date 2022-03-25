@@ -4,10 +4,6 @@ import "./Chat.css";
 
 const Chat = (props) => {
   const navigate = useNavigate();
-  const logoutHandler = () => {
-    localStorage.removeItem("token");
-    navigate("/");
-  };
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {

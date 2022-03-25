@@ -35,16 +35,20 @@ const Conversation = (props) => {
       .then((result) => null);
   };
   if (!props.conversation || !props.conversation.messages) {
-    return <h3>Your messages will appear here.</h3>;
+    return <h3 className={props.classes}>Your messages will appear here.</h3>;
   } else {
     // props.conversation.messages = props.conversation.messages.filter(
     //   (element, index, array) => index === array.indexOf(element)
     // );
   }
   let src = `https://picsum.photos/200?random=${props.username}`;
+  const style = `conversation ${props.classes}`;
   return (
-    <div className="conversation">
+    <div className={style}>
       <div className="conversation-header">
+        <span className="material-icons desktop-hide" onClick={props.onBack}>
+          arrow_back
+        </span>
         <img
           src={src}
           alt="conversation-header-avatar"
