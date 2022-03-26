@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mark2/static/css/main.5e1706f2.css",
+    "main.js": "/mark2/static/js/main.a1c7cf71.js",
+    "index.html": "/mark2/index.html",
+    "main.5e1706f2.css.map": "/mark2/static/css/main.5e1706f2.css.map",
+    "main.a1c7cf71.js.map": "/mark2/static/js/main.a1c7cf71.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e1706f2.css",
+    "static/js/main.a1c7cf71.js"
+  ]
+}
