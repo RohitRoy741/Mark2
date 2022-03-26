@@ -13,7 +13,7 @@ const Navbar = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     setLoading(true);
-    fetch(`http://127.0.0.1:3001/api/v1/users/${username}`, {
+    fetch(`https://mark-2-convo.herokuapp.com/api/v1/users/${username}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

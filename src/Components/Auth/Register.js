@@ -24,7 +24,7 @@ const Register = (props) => {
     event.preventDefault();
     setLoading(true);
     console.log(username, email, password);
-    fetch("http://127.0.0.1:3001/api/v1/users/register", {
+    fetch("https://mark-2-convo.herokuapp.com/api/v1/users/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

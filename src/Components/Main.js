@@ -46,7 +46,7 @@ const Main = (props) => {
       props.socket.on("client-incoming-message", incomingListener);
     }
     if (props.socket) {
-      fetch("http://127.0.0.1:3001/api/v1/chats", {
+      fetch("https://mark-2-convo.herokuapp.com/api/v1/chats", {
         headers: {
           "Content-Type": "Application/JSON",
           Authorization: `Bearer ${localStorage.getItem("token")}`,

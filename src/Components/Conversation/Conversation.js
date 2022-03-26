@@ -19,7 +19,7 @@ const Conversation = (props) => {
       localStorage.getItem("id"),
       text
     );
-    fetch("http://127.0.0.1:3001/api/v1/chats", {
+    fetch("https://mark-2-convo.herokuapp.com/api/v1/chats", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

@@ -20,7 +20,7 @@ const Login = (props) => {
     event.preventDefault();
     setLoading(true);
     console.log(username, password);
-    fetch("http://127.0.0.1:3001/api/v1/users/login", {
+    fetch("https://mark-2-convo.herokuapp.com/api/v1/users/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

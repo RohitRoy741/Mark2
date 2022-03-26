@@ -7,7 +7,7 @@ const UserCard = (props) => {
   const [loading, setLoading] = useState(false);
   const addUserHandler = () => {
     setLoading(true);
-    fetch("http://127.0.0.1:3001/api/v1/chats", {
+    fetch("https://mark-2-convo.herokuapp.com/api/v1/chats", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

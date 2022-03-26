@@ -8,7 +8,7 @@ function App() {
   const [socket, setSocket] = useState(null);
   console.log("App Rendered!");
   useEffect(() => {
-    setSocket(io("http://127.0.0.1:3001"));
+    setSocket(io("https://mark-2-convo.herokuapp.com/"));
   }, []);
   return (
     <Router>
