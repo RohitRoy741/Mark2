@@ -9,8 +9,9 @@ const ChatList = (props) => {
   };
   if (props.chats.data) {
     //console.log(props.chats.data.chats);
+    const style = `chat-list ${props.classes}`;
     return (
-      <div className="chat-list">
+      <div className={style}>
         {props.chats.data.chats.map((item, index) => (
           <Chat
             key={item._id}
