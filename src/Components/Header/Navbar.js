@@ -76,7 +76,7 @@ const Navbar = (props) => {
             value={username}
             onChange={usernameChangeHandler}
           />
-          <span class="material-icons desktop-hide" onClick={hideSearchBar}>
+          <span className="material-icons desktop-hide" onClick={hideSearchBar}>
             close
           </span>
         </form>

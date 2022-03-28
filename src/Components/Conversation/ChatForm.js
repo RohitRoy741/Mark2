@@ -20,7 +20,7 @@ const ChatForm = (props) => {
         onChange={messageChangeHandler}
       />
       <button type="submit" className="message-submit-button">
-        Send
+        <span className="material-icons">send</span>
       </button>
     </form>
   );

@@ -1,21 +1,41 @@
 .chat-form {
-  height: 6vh;
+  height: 7vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(240, 255, 255, 0.116);
+  gap: 2%;
 }
 .message-input {
-  height: 6vh;
+  height: 7vh;
   width: 85%;
   font-size: 16px;
   outline: none;
+  border-radius: 20px;
+  border: none;
+  padding: 20px;
 }
 .message-submit-button {
-  height: 6vh;
-  width: 15%;
-  font-size: 16px;
+  height: 7vh;
+  width: 5%;
+  font-size: 14px;
   background-color: rgb(3, 148, 3);
   color: white;
   cursor: pointer;
   border: none;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.message-submit-button .material-icons {
+  font-size: 20px;
+}
+@media screen and (max-width: 800px) {
+  .message-submit-button {
+    width: 15%;
+  }
+  .message-submit-button .material-icons {
+    font-size: 24px;
+  }
 }
